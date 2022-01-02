@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from doit_tools.doit_tools import (
+from doit_tools.tasks import (
     config, task_compile, task_sort_imports, task_sync,
 )
 

@@ -1,5 +1,5 @@
 import os
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from glob import glob
 from pathlib import Path
 from typing import Any, Dict, Iterator, Iterable, Tuple, Union, List
@@ -25,7 +25,7 @@ class Config:
     """
     main_requirements_source: str = 'setup.py'
     main_requirements_file: str = 'requirements.txt'
-    extra_dependencies: Dependencies = {}
+    extra_dependencies: Dependencies = field(default_factory=dict)
 
 
 config = Config()
