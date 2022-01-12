@@ -15,6 +15,9 @@ classifiers = [
     "Operating System :: Unix",
 ]
 dynamic = ["version", "description"]
+dependencies = [
+    "doit",
+]
 
 [project.urls]
 Home = "https://github.com/AliGhahraei/doit-tools"
