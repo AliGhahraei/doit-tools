@@ -5,4 +5,4 @@ from doit_tools.tasks import (
 )
 
 __all__ = ['config', 'task_compile', 'task_sort_imports', 'task_sync']
-__version__ = '0.1.3'
+__version__ = '0.1.4'
