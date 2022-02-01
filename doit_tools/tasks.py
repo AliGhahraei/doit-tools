@@ -22,10 +22,12 @@ class Config:
     :param extra_dependencies: any other extra dependency files to compile. A
     dictionary mapping each pinned requirements filename to an iterable of
     other requirements that should be compiled before it.
+    :param install_editable: whether to run pip install -e . on sync
     """
     main_requirements_source: str = 'setup.py'
     main_requirements_file: str = 'requirements.txt'
     extra_dependencies: Dependencies = field(default_factory=dict)
+    install_editable: bool = True
 
 
 config = Config()
@@ -37,8 +39,10 @@ def task_sync() -> Dict[str, Any]:
     Compile requirements files if not up-to-date and install them using
     pip-sync, then run pip install -e .
     """
+    additional_actions = (['pip install -e .'] if config.install_editable
+                          else [])
     return {
-        'actions': ['pip-sync requirements/*.txt', 'pip install -e .'],
+        'actions': ['pip-sync requirements/*.txt', *additional_actions],
         'uptodate': [result_dep('compile')],
     }
 
