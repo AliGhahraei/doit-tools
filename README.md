@@ -1,3 +1,6 @@
+# NO LONGER MAINTAINED
+I stopped using pip-tools, which was the main motivation for this
+
 # doit-tools
 ## Predefined tasks for [doit](https://github.com/pydoit/doit)
 
